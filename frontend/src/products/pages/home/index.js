@@ -5,18 +5,18 @@ import FormInput from "products/components/formInput";
 import { Container, Row, Col } from "reactstrap";
 
 function Home() {
-  // Dùng duy nhất cho React Hooks FUNCTION COMPONENT. KHÔNG ĐƯỢC DÙNG REACT CLASS COMPONENT
-  const [listProducts, setListProducts] = React.useState([]); //Create listCustomers State
+  
+  const [listProducts, setListProducts] = React.useState([]);
   const [checkUpdate, setCheckUpdate] = React.useState(false);
 
-  // Nếu giá trị state cũ là A, sau khi mình update thành B => render lại, A set thành A => không render lại
+  
 
   const RetrieveAllProducts = () => {
-    // <=> function RetrieveAllCustomers(){}
+    
     console.log("Retrieve all customer");
     CRUD.getAllPro().then((res) => {
       console.log(res);
-      setListProducts(res.data.data); //Set list customers after get all result from server
+      setListProducts(res.data.data); 
       setCheckUpdate(false);
     });
   };
@@ -25,13 +25,13 @@ function Home() {
     setCheckUpdate(status);
   };
 
-  // useEffect: 1 dạng reactr hooks
+  
   React.useEffect(() => {
-    RetrieveAllProducts(); //Retrieve data when component rendered
-  }, [checkUpdate]); //Dependencies, checkUpdate thay đổi => chạy lại useEffect
+    RetrieveAllProducts();
+  }, [checkUpdate]); 
 
   return (
-    // Short hand React.Fragment
+    
     <Container fluid={true}>
       <h2 className="text-center">Products</h2>
       <Row>

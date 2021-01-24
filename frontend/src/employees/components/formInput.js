@@ -34,7 +34,7 @@ function FormInput({ onSubmitSuccess, type, updateID, updateItem }) {
   }
 
   function handleOnClickSubmit(e) {
-    // Handle event when click submit button
+   
     console.log("POST DATA: " + JSON.stringify(postData));
     const crudType =
       type === "update"
@@ -43,22 +43,22 @@ function FormInput({ onSubmitSuccess, type, updateID, updateItem }) {
 
     crudType
       .then((res) => {
-        // set State check update success => true
+      
         if (type === "create") {
           const check = res.data.message === "Insert successfully";
           
-          onSubmitSuccess(check); // re-render if check is true
+          onSubmitSuccess(check);
         } else if (type === "update") {
-          if (res.data.message === "Updated successfully") history.goBack(); // Go back if update successfully
+          if (res.data.message === "Updated successfully") history.goBack(); 
         }
       })
       .catch((err) => {
-        alert(err || "Unknown Message"); // alert error messages
+        alert(err || "Unknown Message"); 
       });
   }
 
   function handleOnSubmit(e) {
-    e.preventDefault(); // prevent reload page if submit
+    e.preventDefault(); 
   }
 
   return (

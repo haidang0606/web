@@ -6,10 +6,9 @@ import { Form, FormGroup, Button, Input, Label } from "reactstrap";
 function FormInput({ onSubmitSuccess, type, updateID, updateItem }) {
   let history = useHistory();
 
-  // onSubmitSuccess => onUpdateSuccess
-  // Syntax js, defind {abc: "text", def: 12} => object (properties: abc, def)
+  
   const [postData, setPostData] = React.useState({
-    //Create postData state
+    
     shippername: "",
     phone: "",
   });
@@ -24,11 +23,11 @@ function FormInput({ onSubmitSuccess, type, updateID, updateItem }) {
     }
   }, []);
   function handleChangeData(e) {
-    setPostData({ ...postData, [e.target.name]: e.target.value }); //Only change customer name in postData
+    setPostData({ ...postData, [e.target.name]: e.target.value }); 
   }
 
   function handleOnClickSubmit(e) {
-    // Handle event when click submit button
+    
     console.log("POST DATA: " + JSON.stringify(postData));
     const crudType =
       type === "update"
@@ -37,22 +36,22 @@ function FormInput({ onSubmitSuccess, type, updateID, updateItem }) {
 
     crudType
       .then((res) => {
-        // set State check update success => true
+       
         if (type === "create") {
           const check = res.data.message === "Insert successfully";
           
-          onSubmitSuccess(check); // re-render if check is true
+          onSubmitSuccess(check); 
         } else if (type === "update") {
-          if (res.data.message === "Updated successfully") history.goBack(); // Go back if update successfully
+          if (res.data.message === "Updated successfully") history.goBack(); 
         }
       })
       .catch((err) => {
-        alert(err || "Unknown Message"); // alert error messages
+        alert(err || "Unknown Message"); 
       });
   }
 
   function handleOnSubmit(e) {
-    e.preventDefault(); // prevent reload page if submit
+    e.preventDefault(); 
   }
 
   return (

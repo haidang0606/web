@@ -6,19 +6,18 @@ import { Table, Button } from "reactstrap";
 function TableContent({ items, onDeleteSuccess }) {
   let history = useHistory();
 
-  // === props.checkUpdateSuccess
+  
   function handleOnDelete(id) {
-    //Handle when click button Delete
+    
     CRUD.deleteOne(id).then((res) => {
-      // Call CURD from services
-      // check response message
+      
       onDeleteSuccess(true);
       alert("Delete Success!")
     });
   }
 
   function handleOnEdit(item) {
-    // Route sang UpdatePage
+    
     history.push(`/customers/update/${item.customer_id}`, { updateItem: item });
   }
 
@@ -40,7 +39,7 @@ function TableContent({ items, onDeleteSuccess }) {
       <tbody>
         {items.map((
           item,
-          index //Map responses list data to table row
+          index 
         ) => (
           <tr>
             <td>{item.customer_id}</td>

@@ -5,18 +5,17 @@ import FormInput from "customers/components/formInput";
 import { Container, Row, Col } from "reactstrap";
 
 function Home() {
-  // Dùng duy nhất cho React Hooks FUNCTION COMPONENT. KHÔNG ĐƯỢC DÙNG REACT CLASS COMPONENT
-  const [listCustomers, setListCustomers] = React.useState([]); //Create listCustomers State
+  
+  const [listCustomers, setListCustomers] = React.useState([]);
   const [checkUpdate, setCheckUpdate] = React.useState(false);
 
-  // Nếu giá trị state cũ là A, sau khi mình update thành B => render lại, A set thành A => không render lại
-
+ 
   const RetrieveAllCustomers = () => {
-    // <=> function RetrieveAllCustomers(){}
+    
     console.log("Retrieve all customer");
     CRUD.getAll().then((res) => {
-      //console.log(res);
-      setListCustomers(res.data.data); //Set list customers after get all result from server
+     
+      setListCustomers(res.data.data); 
       setCheckUpdate(false);
     });
   };
@@ -25,13 +24,12 @@ function Home() {
     setCheckUpdate(status);
   };
 
-  // useEffect: 1 dạng reactr hooks
+  
   React.useEffect(() => {
-    RetrieveAllCustomers(); //Retrieve data when component rendered
-  }, [checkUpdate]); //Dependencies, checkUpdate thay đổi => chạy lại useEffect
-
+    RetrieveAllCustomers(); 
+  }, [checkUpdate]);
   return (
-    // Short hand React.Fragment
+    
     <Container fluid={true}>
       <h2 className="text-center">Northwind React Example</h2>
       <Row>

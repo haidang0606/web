@@ -5,18 +5,14 @@ import FormInput from "orderdetails/components/formInput";
 import { Container, Row, Col } from "reactstrap";
 
 function Home() {
-  // Dùng duy nhất cho React Hooks FUNCTION COMPONENT. KHÔNG ĐƯỢC DÙNG REACT CLASS COMPONENT
-  const [listOrderdetails, setListOrderdetails] = React.useState([]); //Create listCustomers State
+  const [listOrderdetails, setListOrderdetails] = React.useState([]); 
   const [checkUpdate, setCheckUpdate] = React.useState(false);
-
-  // Nếu giá trị state cũ là A, sau khi mình update thành B => render lại, A set thành A => không render lại
-
   const RetrieveAllOrderdetails = () => {
  
     console.log("Retrieve all orderdetails");
     CRUD.getAllOrderdetails().then((res) => {
       console.log(res);
-      setListOrderdetails(res.data.data); //Set list customers after get all result from server
+      setListOrderdetails(res.data.data);
       setCheckUpdate(false);
     });
   };
@@ -25,10 +21,10 @@ function Home() {
     setCheckUpdate(status);
   };
 
-  // useEffect: 1 dạng reactr hooks
+  
   React.useEffect(() => {
-    RetrieveAllOrderdetails(); //Retrieve data when component rendered
-  }, [checkUpdate]); //Dependencies, checkUpdate thay đổi => chạy lại useEffect
+    RetrieveAllOrderdetails(); 
+  }, [checkUpdate]); 
 
   return (
     // Short hand React.Fragment
