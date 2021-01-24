@@ -14,7 +14,7 @@ RUN pip install -r requirements.txt
 COPY . /app
 
 # ENTRYPOINT [ "python" ]
-ENV host 192.168.0.23
+ENV host 172.20.10.6
 ENV port 5432
 ENV user postgres
 ENV database northwind

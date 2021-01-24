@@ -1,10 +1,12 @@
 from flask import Flask
 from flask import request
 from flask import jsonify
+from flask_cors import CORS
 import os
 
 from BusinessObject import Customer as CustomerEntity
 from DataObject import Customer
+
 
 from BusinessObject import Categories as CategoriesEntity
 from DataObject import Categories
@@ -28,6 +30,7 @@ from BusinessObject import Suppliers as SuppliersEntity
 from DataObject import Suppliers
 
 app = Flask(__name__)
+CORS(app)
 
 connection_data = dict()
 connection_data['host'] = os.getenv('host')
@@ -46,15 +49,15 @@ def index():
 
 # CRUD(Create, Read, Update, Delete)
 # POST, GET, PUT, DELETE
-#Customer
+
 @app.route('/add_customer', methods=['POST'])
 def add_customer():
     data = request.json
-    customer = CustomerEntity(customer_name=data['customername'],
-                                contact_name=data['contactname'],
+    customer = CustomerEntity(customer_name=data['customer_name'],
+                                contact_name=data['contact_name'],
                                 address=data['address'],
                                 city=data['city'],
-                                postal_code=data['postalcode'],
+                                postal_code=data['postal_code'],
                                 country=data['country'])
     c = Customer(connection_data)
     message = c.insert(customer)
@@ -88,23 +91,23 @@ def delete_customer_by_id(id):
         # Update user by id
         data = request.json
         customer = CustomerEntity(customer_id=id,
-                                    customer_name=data['customername'],
-                                    contact_name=data['contactname'],
+                                    customer_name=data['customer_name'],
+                                    contact_name=data['contact_name'],
                                     address=data['address'],
                                     city=data['city'],
-                                    postal_code=data['postalcode'],
+                                    postal_code=data['postal_code'],
                                     country=data['country'])
         c = Customer(connection_data)
         result = c.update(customer)
         return jsonify({
             'message': result[0]
         }), result[1]
+
 #Categoris-------------------------------------------
 @app.route('/add_categories', methods=['POST'])
 def add_categories():
     data = request.json
-    categories = CategoriesEntity(categories_name=data['categoriesname'],
-                                         description=data['description'])
+    categories = CategoriesEntity(categories_name=data['categoriesname'],description=data['description'])
     c = Categories(connection_data) 
     message = c.insert(categories)
     if message is None:
