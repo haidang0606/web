@@ -76,11 +76,11 @@ function FormInput({ onSubmitSuccess, type, updateID, updateItem }) {
         name="productid"
         value={postData.productid}
         onChange={handleChangeData}
-        placeholder="Product ID"
+        placeholder="ProductID"
       />
     </FormGroup>
     <FormGroup>
-      <Label for="quantity">Quantity </Label>
+      <Label for="quantity">Quantity</Label>
       <Input
         type="text"
         name="quantity"

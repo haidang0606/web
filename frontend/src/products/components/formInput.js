@@ -6,10 +6,9 @@ import { Form, FormGroup, Button, Input, Label } from "reactstrap";
 function FormInput({ onSubmitSuccess, type, updateID, updateItem }) {
   let history = useHistory();
 
-  // onSubmitSuccess => onUpdateSuccess
-  // Syntax js, defind {abc: "text", def: 12} => object (properties: abc, def)
+  
   const [postData, setPostData] = React.useState({
-    //Create postData state
+    
     productname: "",
     supplierid: "",
     categoryid: "",

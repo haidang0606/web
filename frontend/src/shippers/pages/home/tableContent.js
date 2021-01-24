@@ -31,8 +31,7 @@ function TableContent({ items, onDeleteSuccess }) {
         </tr>
       </thead>
       <tbody>
-        {items.map((item, index 
-        ) => (
+        {items.map((item, index ) => (
           <tr>
             <td>{item.shipper_id}</td>
             <td>{item.shipper_name}</td>

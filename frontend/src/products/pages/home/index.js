@@ -13,7 +13,7 @@ function Home() {
 
   const RetrieveAllProducts = () => {
     
-    console.log("Retrieve all customer");
+    console.log("Retrieve all products");
     CRUD.getAllPro().then((res) => {
       console.log(res);
       setListProducts(res.data.data); 

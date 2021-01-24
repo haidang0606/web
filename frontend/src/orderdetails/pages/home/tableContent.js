@@ -18,7 +18,7 @@ function TableContent({ items, onDeleteSuccess }) {
 
   function handleOnEdit(item) {
     
-    history.push(`/orderdetails/update/${item.orderdetail_id}`, { updateItem: item });
+    history.push(`/orderdetails/update/${item.orderdetails_id}`, { updateItem: item });
   }
 
   return (
@@ -32,15 +32,14 @@ function TableContent({ items, onDeleteSuccess }) {
         </tr>
       </thead>
       <tbody>
-        {items.map((item, index 
-        ) => (
+        {items.map((item, index ) => (
           <tr>
-            <td>{item.orderdetail_id}</td>
+            <td>{item.orderdetails_id}</td>
             <td>{item.order_id}</td>
             <td>{item.product_id}</td>
             <td>{item.quantity}</td>
             <td>
-              <Button color="danger" onClick={() => handleOnDelete(item.orderdetail_id)}>
+              <Button color="danger" onClick={() => handleOnDelete(item.orderdetails_id)}>
                 Delete
               </Button>
             </td>

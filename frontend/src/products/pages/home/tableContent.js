@@ -18,7 +18,7 @@ function TableContent({ items, onDeleteSuccess }) {
 
   function handleOnEdit(item) {
     
-    history.push(`/products/update/${item.products_id}`, { updateItem: item });
+    history.push(`/products/update/${item.product_id}`, { updateItem: item });
   }
 
   return (

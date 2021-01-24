@@ -13,7 +13,7 @@ function Home() {
 
   const RetrieveAllShippers = () => {
     
-    console.log("Retrieve all shipper");
+    console.log("Retrieve all shippers");
     CRUD.getAllShip().then((res) => {
       console.log(res);
       setListShippers(res.data.data); 

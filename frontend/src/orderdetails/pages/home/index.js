@@ -27,7 +27,7 @@ function Home() {
   }, [checkUpdate]); 
 
   return (
-    // Short hand React.Fragment
+  
     <Container fluid={true}>
       <h2 className="text-center">Orderdetails</h2>
       <Row>
