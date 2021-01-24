@@ -8,7 +8,7 @@ data['city'] = 'dn'
 data['postalcode'] = '5000'
 data['country'] = 'da nang'
 
-res = requests.post('http://192.168.1.4:5000/add_customer',json=data)
+res = requests.post('http://localhost:5000/add_customer',json=data)
 print(res.text)
 
 # data = {}
