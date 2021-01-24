@@ -9,7 +9,7 @@ function TableContent({ items, onDeleteSuccess }) {
   // === props.checkUpdateSuccess
   function handleOnDelete(id) {
     //Handle when click button Delete
-    CRUD.deleteOneCate(id).then((res) => {
+    CRUD.deleteOneOrderdetails(id).then((res) => {
       // Call CURD from services
       // check response message
       onDeleteSuccess(true);
@@ -19,27 +19,29 @@ function TableContent({ items, onDeleteSuccess }) {
 
   function handleOnEdit(item) {
     // Route sang UpdatePage
-    history.push(`/categories/update/${item.categories_id}`, { updateItem: item });
+    history.push(`/orderdetails/update/${item.orderdetail_id}`, { updateItem: item });
   }
 
   return (
     <Table striped>
       <thead>
         <tr>
-          <th>CategoryID</th>
-          <th>Categories Name</th>
-          <th>Description</th>
+          <th>OrderDetailID</th>
+          <th>OrderID </th>
+          <th>ProductID</th>
+          <th>Quantity</th>
         </tr>
       </thead>
       <tbody>
         {items.map((item, index //Map responses list data to table row
         ) => (
           <tr>
-            <td>{item.categories_id}</td>
-            <td>{item.categories_name}</td>
-            <td>{item.description}</td>
+            <td>{item.orderdetail_id}</td>
+            <td>{item.order_id}</td>
+            <td>{item.product_id}</td>
+            <td>{item.quantity}</td>
             <td>
-              <Button color="danger" onClick={() => handleOnDelete(item.categories_id)}>
+              <Button color="danger" onClick={() => handleOnDelete(item.orderdetail_id)}>
                 Delete
               </Button>
             </td>
